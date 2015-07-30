@@ -8,7 +8,7 @@ $secretKey='';
  * 
  * Swap between live and sandbox using the urls defined below
  *******************************************************************/
-$region='US'; // DE, UK or US
+$region='JP'; // DE, UK or US
 $environment='SANDBOX'; // SANDBOX or LIVE
 $applicationName='';
 $applicationVersion='';
