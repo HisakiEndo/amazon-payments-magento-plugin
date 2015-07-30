@@ -37,7 +37,7 @@ class Amazon_Payments_Model_System_Config_Backend_Enabled extends Mage_Core_Mode
 
         if ($isEnabled) {
             $config = array (
-                'ServiceURL' => "https://mws.amazonservices.com/Sellers/2011-07-01",
+                'ServiceURL' => "https://mws.amazonservices.jp/Sellers/2011-07-01",
                 'ProxyHost' => null,
                 'ProxyPort' => -1,
                 'ProxyUsername' => null,
