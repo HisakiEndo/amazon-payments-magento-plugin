@@ -84,6 +84,15 @@
                 </observers>
             </adminhtml_widget_container_html_before>
         </events>
+        <translate>
+            <modules>
+                <Amazon_Payments>
+                    <files>
+                        <default>Amazon_Payments.csv</default>
+                    </files>
+                </Amazon_Payments>
+            </modules>
+        </translate>
     </adminhtml>
 
     <frontend>
@@ -142,6 +151,15 @@
                 </observers>
             </custom_quote_process>
         </events>
+        <translate>
+            <modules>
+                <Amazon_Payments>
+                    <files>
+                        <default>Amazon_Payments.csv</default>
+                    </files>
+                </Amazon_Payments>
+            </modules>
+        </translate>
     </frontend>
 
     <default>

@@ -33,26 +33,34 @@ class OffAmazonPaymentsService_RegionSpecificProperties
 {
 	private $_widgetUrls = array(
 		'eu' => 'https://static-eu.payments-amazon.com',
-		'na' => 'https://static-na.payments-amazon.com'
+		'na' => 'https://static-na.payments-amazon.com',
+        'jp' => 'https://static-fe.payments-amazon.com'
 	);
+
+    private $_sandboxWidgetUrls = array(
+        'jp' => 'https://origin-na.ssl-images-amazon.com/images/G/09/EP/offAmazonPayments/sandbox/prod/lpa/js/Widgets.js?sellerId='
+    );
 
 	private $_serviceUrls = array(
 		'eu' => 'https://mws-eu.amazonservices.com',
-		'na' => 'https://mws.amazonservices.com'
+		'na' => 'https://mws.amazonservices.com',
+        'jp' => 'https://mws.amazonservices.jp'
 	);
 
 	private $_currencyCodes = array(
 		'de' => 'EUR',
 		'uk' => 'GBP',
 		'us' => 'USD',
-		'na' => 'USD'
+		'na' => 'USD',
+        'jp' => 'JPY'
 	);
 
 	private $_regionMappings = array(
 		'de' => 'eu',
 		'na' => 'na',
 		'uk' => 'eu',
-		'us' => 'na'
+		'us' => 'na',
+        'jp' => 'jp'
 	);
 
 	const WIDGET_FORMAT_STRING = '%s/OffAmazonPayments/%s%s/js/Widgets.js?sellerId=%s';
@@ -70,11 +78,16 @@ class OffAmazonPaymentsService_RegionSpecificProperties
 	 */
 	public function getWidgetUrlFor($region, $environment, $merchantId, $overrideUrl)
 	{
-		return sprintf(self::WIDGET_FORMAT_STRING,
-					$this->_getWidgetHostFor($region, $overrideUrl),
-					$this->_getWidgetRegionFor($region),
-			    	$this->_getWidgetEnvironmentFor($environment),
-					urlencode($merchantId));
+		if($region == 'jp' && $this->_isSandbox($environment)) {
+            return $this->_sandboxWidgetUrls[$region] . urlencode($merchantId);
+        } else {
+            return sprintf(self::WIDGET_FORMAT_STRING,
+                $this->_getWidgetHostFor($region, $overrideUrl),
+                $this->_getWidgetRegionFor($region),
+                $this->_getWidgetEnvironmentFor($environment),
+                urlencode($merchantId));
+        }
+
 	}
 
 	/**

@@ -22,5 +22,6 @@ final class OffAmazonPaymentsService_Regions
     const UK = "uk";
     const US = "us";
     const NA = "na";
+    const JP = "jp";
 }
 ?>
