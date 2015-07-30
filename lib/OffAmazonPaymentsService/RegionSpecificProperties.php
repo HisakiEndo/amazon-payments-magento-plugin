@@ -78,6 +78,8 @@ class OffAmazonPaymentsService_RegionSpecificProperties
 	 */
 	public function getWidgetUrlFor($region, $environment, $merchantId, $overrideUrl)
 	{
+		Mage::log($region);
+		Mage::log($environment);
 		if($region == 'jp' && $this->_isSandbox($environment)) {
             return $this->_sandboxWidgetUrls[$region] . urlencode($merchantId);
         } else {
