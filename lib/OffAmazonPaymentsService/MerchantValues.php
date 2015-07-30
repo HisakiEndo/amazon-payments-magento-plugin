@@ -135,7 +135,7 @@ class OffAmazonPaymentsService_MerchantValues
 
     public function getWidgetUrl()
     {
-    	return $this->_regionSpecificProperties->getWidgetUrlFor($this->_region, $this->_environment, $this->_merchantId, $this->_widgetUrl);
+        return $this->_regionSpecificProperties->getWidgetUrlFor($this->_region, $this->_environment, $this->_merchantId, $this->_widgetUrl);
     }
 
     public function getCurrency()

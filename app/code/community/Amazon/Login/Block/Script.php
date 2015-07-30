@@ -28,7 +28,11 @@ class Amazon_Login_Block_Script extends Mage_Core_Block_Template
               $widgetRegion = 'de';
               $lpa = 'lpa/';
               break;
-
+          case 'jp':
+              $staticRegion = 'fe';
+              $widgetRegion = 'jp';
+              $lpa = 'lpa/';
+              break;
           // US
           default:
               $staticRegion = 'na';
@@ -39,7 +43,12 @@ class Amazon_Login_Block_Script extends Mage_Core_Block_Template
 
         $sandbox = $this->isSandboxEnabled() ? 'sandbox/' : '';
 
-        return "https://static-$staticRegion.payments-amazon.com/OffAmazonPayments/$widgetRegion/{$sandbox}{$lpa}js/Widgets.js?sellerId=" . $this->getSellerId();
+        if($widgetRegion=='jp' && $sandbox) {
+            return "https://origin-na.ssl-images-amazon.com/images /G/09/EP/offAmazonPayments/sandbox/prod/lpa/js /Widgets.js?sellerId=" . $this->getSellerId();
+        } else {
+            return "https://static-$staticRegion.payments-amazon.com/OffAmazonPayments/$widgetRegion/{$sandbox}{$lpa}js/Widgets.js?sellerId=" . $this->getSellerId();
+        }
+
     }
 
     /**
