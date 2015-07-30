@@ -45,7 +45,12 @@ class Amazon_Login_Model_Api
         $sandbox = (Mage::getStoreConfig('payment/amazon_payments/sandbox')) ? 'sandbox.' : '';
 
         $client = new Zend_Http_Client();
-        $client->setUri("https://api.{$sandbox}amazon.co.jp/$path");
+        if($sandbox) {
+            $client->setUri("https://api-{$sandbox}amazon.co.jp/$path");
+        } else {
+            $client->setUri("https://api.{$sandbox}amazon.co.jp/$path");
+        }
+
         $client->setConfig($this->http_client_config);
         $client->setMethod($postParams ? 'POST' : 'GET');
 
