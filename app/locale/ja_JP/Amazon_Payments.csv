@@ -114,3 +114,90 @@
 "Shortcut on Product View","商品ページにショートカットを表示"
 "Show Pay with Amazon Button on Cart","ショッピングカートにペイ with Amazonボタンを表示"
 "Sort Order","表示順"
+"<![CDATA[
+
+                     <a href=""http://login.amazon.com/"" target=""_blank"><img src=""http://g-ecx.images-amazon.com/images/G/01/lwa/common/images/lwa_dev_logo._V371482133_.png"" /></a>
+                     <br/>
+                     <strong>Setup</strong>
+                     <ol style=""list-style:inside decimal;"">
+                       <li>Access your client credentials by registering a new application through <a href=""https://sellercentral.amazon.com/"" target=""_blank"">Amazon Seller Central</a>.
+                       <li>Whitelist your domain under ""Allowed JavaScript Origins.""
+                       <li>Under General->Web, enable ""Use Secure URLs in Frontend."" (HTTPS is required.)
+                       <li>Amazon Payments (Login and Pay) is configured under Sales->Payment Methods.
+                     </ol>
+
+
+                     <div style=""clear:both;""></div>
+             ]]>","<![CDATA[
+
+                                       <a href=""http://login.amazon.com/"" target=""_blank"><img src=""http://g-ecx.images-amazon.com/images/G/01/lwa/common/images/lwa_dev_logo._V371482133_.png"" /></a>
+                                       <br/>
+                                       <strong>セットアップ</strong>
+                                       <ol style=""list-style:inside decimal;"">
+                                         <li>クライアント証明書を使用して <a href=""https://sellercentral.amazon.com/"" target=""_blank"">Amazonセラーセントラル</a> で新しいアプリケーションを登録してください。
+                                         <li>ご使用になるドメイン名を ""JavaScriptの種類"" に登録してください。
+                                         <li>全般->ウェブで ""フロントエンドでセキュアURLを使用する""をオンにしてください。 (HTTPSは必須です。)
+                                         <li>Amazonペイメント (ログイン & ペイ) を セールス->支払い方法 で設定してください。
+                                       </ol>
+
+
+                                       <div style=""clear:both;""></div>
+                               ]]>"
+"Settings","設定"
+"Advanced","拡張設定"
+"<![CDATA[Optional access scope strings during login.]]>","<![CDATA[Optional access scope strings during login.]]>"
+"<![CDATA[
+
+                     <a href=""https://payments.amazon.com/"" target=""_blank""><img src=""https://images-na.ssl-images-amazon.com/images/G/01/Iris3_US/en_US/inca/images/btnPaywAMZN-gld-Desktop-2x.png"" /></a>
+                     <br/><br />
+                     Login and Pay with Amazon helps you increase conversion, reduce fraud, acquire new customers and build loyalty.
+                     <br /><br />
+
+                     <strong>Configuring Amazon Payments</strong>
+                     <ol style=""list-style:inside decimal;"">
+                       <li>Register or login to retrieve your account keys: &nbsp<button onclick=""javascript:window.open(&#39;https://sellercentral.amazon.com/hz/me/sp/signup?solutionProviderOptions=lwa%3Bmws-acc%3B&marketplaceId=AGWSWK15IEJJ7&solutionProviderToken=AAAAAQAAAAEAAAAQCz2wulRfR9nOADyzVQrq5wAAAHAIIULh6RBNvlw68WY5S9ATlmInlyg2PLVF44yUVowkyjvDZPhtLf3UYn6fshHlKqwR4qptfBeltbxLtLrrIfK6JoxzuWe9FRTnCfSey8a0sFKuL3mwNenjLyMC9BAN1xU0S6pebxA2mz8t8Y1v5Axi&solutionProviderId=A2K7HE1S3M5XJ&#39;, &#39;get_keys&#39,&#39;left=50, top=50, width=950, height=750&#39;); return false;"" class=""scalable"" type=""button""><span>Login to Get Your Keys</span></button>
+                       <li>Add your url to ""Allowed JavaScript Origins"" in <a href=""https://sellercentral.amazon.com/"" target=""_blank"">Amazon Seller Central</a>.
+                       <li>Under General->Web, enable ""Use Secure URLs in Frontend."" (HTTPS is required.)
+                     </ol>
+
+                     <div style=""clear:both;""></div>
+             ]]>","<![CDATA[
+
+                                       <a href=""https://payments.amazon.com/"" target=""_blank""><img src=""https://images-na.ssl-images-amazon.com/images/G/01/Iris3_US/en_US/inca/images/btnPaywAMZN-gld-Desktop-2x.png"" /></a>
+                                       <br/><br />
+                                       ログイン & ペイ with Amazonは成約率を向上させ、不正利用を防ぎ、新しい顧客を獲得してロイヤリティを築きます。
+                                       <br /><br />
+
+                                       <strong>Amazonペイメント設定</strong>
+                                       <ol style=""list-style:inside decimal;"">
+                                         <li>登録またはログインしてアカウントキーを取得してください: &nbsp<button onclick=""javascript:window.open(&#39;https://sellercentral.amazon.com/hz/me/sp/signup?solutionProviderOptions=lwa%3Bmws-acc%3B&marketplaceId=AGWSWK15IEJJ7&solutionProviderToken=AAAAAQAAAAEAAAAQCz2wulRfR9nOADyzVQrq5wAAAHAIIULh6RBNvlw68WY5S9ATlmInlyg2PLVF44yUVowkyjvDZPhtLf3UYn6fshHlKqwR4qptfBeltbxLtLrrIfK6JoxzuWe9FRTnCfSey8a0sFKuL3mwNenjLyMC9BAN1xU0S6pebxA2mz8t8Y1v5Axi&solutionProviderId=A2K7HE1S3M5XJ&#39;, &#39;get_keys&#39,&#39;left=50, top=50, width=950, height=750&#39;); return false;"" class=""scalable"" type=""button""><span>Login to Get Your Keys</span></button>
+                                         <li>お使いのURLを <a href=""https://sellercentral.amazon.com/"" target=""_blank"">Amazonセラーセントラル</a> の ""Javascriptの種類"" で設定してください。
+                                         <li>全般->ウェブで ""フロントエンドでセキュアURLを使用する""をオンにしてください。 (HTTPSは必須です。)
+                                       </ol>
+
+                                       <div style=""clear:both;""></div>
+                               ]]>"
+"<![CDATA[Only applies when OnePage Checkout is used, otherwise button is always shown.]]>","<![CDATA[ワンページチェックアウトが使用されるときにのみ適用されます、そうでない場合はボタンが常に表示されます。]]>"
+"<![CDATA[You have set orders to not have funds authorized, so you should set the New Order Status below to a custom status other than ""Pending"" or ""Processing."" Funds will need to be captured from a third-party system.]]>",
+"<![CDATA[You have set orders to not have funds authorized, so you should set the New Order Status below to a custom status other than ""Pending"" or ""Processing."" Funds will need to be captured from a third-party system.]]>"
+"<![CDATA[Store name to display in Amazon emails. If left blank, current Magento store name will be used.]]>","<![CDATA[Store name to display in Amazon emails. If left blank, current Magento store name will be used.]]>"
+"<![CDATA[HTTPS is required to use the Amazon button on the cart page.]]>","<![CDATA[HTTPS is required to use the Amazon button on the cart page.]]>"
+"<![CDATA[Add pay button under "Payment Information" during checkout. (Recommended flow is to display button before user enters billing and shipping information.)]]>","<![CDATA[Add pay button under "Payment Information" during checkout. (Recommended flow is to display button before user enters billing and shipping information.)]]>"
+"<![CDATA[In asynchronous mode, the payment is returned as a Pending status instead of an immediate Open or Declined status. Customers will need to be notified of a Declined status.]]>","<![CDATA[In asynchronous mode, the payment is returned as a Pending status instead of an immediate Open or Declined status. Customers will need to be notified of a Declined status.]]>"
+"<![CDATA[Display "Amazon Payments" acceptance mark in right sidebar.]]>","<![CDATA[Display "Amazon Payments" acceptance mark in right sidebar.]]>"
+"<![CDATA[Save API responses to Magento log]]>","<![CDATA[Save API responses to Magento log]]>"
+"<![CDATA[Display to only whitelisted IPs found in <br>Developer -> Developer Client Restrictions]]>","<![CDATA[Display to only whitelisted IPs found in <br>Developer -> Developer Client Restrictions]]>"
+"<![CDATA[
+                         Login and Pay with Amazon Diagnostics can be used to help developers troubleshoot your Login and Pay with Amazon integration.
+                         <br/>
+                         <div style=""clear:both;""></div>
+                         ]]>","<![CDATA[
+                                                       Login and Pay with Amazon Diagnostics can be used to help developers troubleshoot your Login and Pay with Amazon integration.
+                                                       <br/>
+                                                       <div style=""clear:both;""></div>
+                                                       ]]>"
+"<![CDATA[
+                                 Copy/paste results to developer support if requested.
+                                 ]]>","<![CDATA[
+                                                                       Copy/paste results to developer support if requested.
+                                                                       ]]>"
