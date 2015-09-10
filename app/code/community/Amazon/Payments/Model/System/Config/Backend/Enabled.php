@@ -36,8 +36,15 @@ class Amazon_Payments_Model_System_Config_Backend_Enabled extends Mage_Core_Mode
         $isEnabled = $this->getValue();
 
         if ($isEnabled) {
+            $region = Mage::getStoreConfig('payment/amazon_payments/region');
+            if($region == 'jp') {
+                $serviceURL = "https://mws.amazonservices.jp/Sellers/2011-07-01";
+            } else {
+                $serviceURL = "https://mws.amazonservices.com/Sellers/2011-07-01";
+            }
+
             $config = array (
-                'ServiceURL' => "https://mws.amazonservices.jp/Sellers/2011-07-01",
+                'ServiceURL' => $serviceURL,
                 'ProxyHost' => null,
                 'ProxyPort' => -1,
                 'ProxyUsername' => null,
