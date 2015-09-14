@@ -8,7 +8,7 @@
  * @license     http://opensource.org/licenses/Apache-2.0  Apache License, Version 2.0
  */
 
-class Amazon_Login_Model_System_Config_Source_region
+class Amazon_Payments_Model_System_Config_Source_region
 {
     public function toOptionArray()
     {
