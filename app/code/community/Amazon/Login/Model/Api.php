@@ -46,7 +46,12 @@ class Amazon_Login_Model_Api
         $region = Mage::getStoreConfig('payment/amazon_payments/region');
         $client = new Zend_Http_Client();
         if($region == 'jp') {
-            $client->setUri("https://api-{$sandbox}amazon.co.jp/$path");
+            if($sandbox) {
+                $sandbox = '-'. $sandbox;
+            } else {
+                $sandbox = '.';
+            }
+            $client->setUri("https://api{$sandbox}amazon.co.jp/$path");
         } else {
             $client->setUri("https://api.{$sandbox}amazon.com/$path");
         }
