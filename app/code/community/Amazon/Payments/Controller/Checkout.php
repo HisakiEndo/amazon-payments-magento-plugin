@@ -207,19 +207,35 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
             $address = $orderReferenceDetails->getDestination()->getPhysicalDestination();
 
             // Split name into first/last
-            $name      = $address->getName();
+            $name      = mb_convert_kana($address->getName(), 's', 'utf-8');
             $firstName = substr($name, 0, strrpos($name, ' '));
             $lastName  = substr($name, strlen($firstName) + 1);
 
+            $city = $address->getCity();
+            $address1 = $address->getAddressLine1();
+            $address2 = $address->getAddressLine2();
+
+            if(!$city) {
+                $city = $address->getAddressLine1();
+                $address1 = ($address2 == '') ? '　' : $address2;
+                $address2 = '';
+            }
+
             // Find Mage state/region ID
-            $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
+            $locale         = Mage::app()->getLocale()->getLocaleCode();
+            if($locale == 'ja_JP'){
+                $regionModel = Mage::getModel('directory/region')->loadByName($address->getStateOrRegion(), $address->getCountryCode());
+            } else {
+                $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
+            }
+
             $regionId    = $regionModel->getId();
 
             $data = array(
                 'firstname'   => $firstName,
-                'lastname'    => $lastName,
-                'street'      => array($address->getAddressLine1(), $address->getAddressLine2()),
-                'city'        => $address->getCity(),
+                'lastname'    => ($lastName != '') ? $lastName : '　',
+                'street'      => array($address1, $address2),
+                'city'        => $city,
                 'region'      => $address->getStateOrRegion(),
                 'region_id'   => $regionId,
                 'postcode'    => $address->getPostalCode(),
@@ -238,18 +254,33 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                 $billing = $orderReferenceDetails->getBillingAddress()->getPhysicalAddress();
                 //$data['use_for_shipping'] = false;
 
-                $name      = $billing->getName();
+                $name      = mb_convert_kana($billing->getName(), 's', 'utf-8');
                 $firstName = substr($name, 0, strrpos($name, ' '));
                 $lastName  = substr($name, strlen($firstName) + 1);
 
-                $regionModel = Mage::getModel('directory/region')->loadByCode($billing->getStateOrRegion(), $billing->getCountryCode());
-                $regionId    = $regionModel->getId();
+                $city = $billing->getCity();
+                $address1 = $billing->getAddressLine1();
+                $address2 = $billing->getAddressLine2();
+
+                if(!$city) {
+                    $city = $billing->getAddressLine1();
+                    $address1 = ($address2 == '') ? '　' : $address2;
+                    $address2 = '';
+                }
+
+                // Find Mage state/region ID
+                $locale         = Mage::app()->getLocale()->getLocaleCode();
+                if($locale == 'ja_JP'){
+                    $regionModel = Mage::getModel('directory/region')->loadByName($billing->getStateOrRegion(), $billing->getCountryCode());
+                } else {
+                    $regionModel = Mage::getModel('directory/region')->loadByCode($billing->getStateOrRegion(), $billing->getCountryCode());
+                }
 
                 $dataBilling = array(
                     'firstname'   => $firstName,
-                    'lastname'    => $lastName,
-                    'street'      => array($billing->getAddressLine1(), $billing->getAddressLine2()),
-                    'city'        => $billing->getCity(),
+                    'lastname'    => ($lastName != '') ? $lastName : '　',
+                    'street'      => array($address1, $address2),
+                    'city'        => $city,
                     'region'      => $billing->getStateOrRegion(),
                     'region_id'   => $regionId,
                     'postcode'    => $billing->getPostalCode(),
