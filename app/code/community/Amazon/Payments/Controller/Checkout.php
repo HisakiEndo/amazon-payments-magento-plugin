@@ -278,7 +278,7 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
 
                 $dataBilling = array(
                     'firstname'   => $firstName,
-                    'lastname'    => ($lastName != '') ? $lastName : '　',
+                    'lastname'    => ($lastName != '') ? $lastName : '.',
                     'street'      => array($address1, $address2),
                     'city'        => $city,
                     'region'      => $billing->getStateOrRegion(),
