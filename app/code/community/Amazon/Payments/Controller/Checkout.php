@@ -229,14 +229,16 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
             }
 
             // Find Mage state/region ID
-            $locale         = Mage::app()->getLocale()->getLocaleCode();
-            if($locale == 'ja_JP'){
-                $regionModel = Mage::getModel('directory/region')->loadByName($address->getStateOrRegion(), $address->getCountryCode());
-            } else {
-                $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
-            }
-
+            $regionModel = Mage::getModel('directory/region')->loadByCode($address->getStateOrRegion(), $address->getCountryCode());
             $regionId    = $regionModel->getId();
+            if(!$regionId) {
+                $regionCollection = Mage::getResourceModel('directory/region_collection')->addCountryFilter($address->getCountryCode());
+                foreach($regionCollection as $region) {
+                    if($region->getName() == $address->getStateOrRegion()) {
+                        $regionId = $region->getId();
+                    }
+                }
+            }
 
             $data = array(
                 'firstname'   => $firstName,
@@ -283,11 +285,15 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                 }
 
                 // Find Mage state/region ID
-                $locale         = Mage::app()->getLocale()->getLocaleCode();
-                if($locale == 'ja_JP'){
-                    $regionModel = Mage::getModel('directory/region')->loadByName($billing->getStateOrRegion(), $billing->getCountryCode());
-                } else {
-                    $regionModel = Mage::getModel('directory/region')->loadByCode($billing->getStateOrRegion(), $billing->getCountryCode());
+                $regionModel = Mage::getModel('directory/region')->loadByCode($billing->getStateOrRegion(), $billing->getCountryCode());
+                $regionId    = $regionModel->getId();
+                if(!$regionId) {
+                    $regionCollection = Mage::getResourceModel('directory/region_collection')->addCountryFilter($billing->getCountryCode());
+                    foreach($regionCollection as $region) {
+                        if($region->getName() == $billing->getStateOrRegion()) {
+                            $regionId = $region->getId();
+                        }
+                    }
                 }
 
                 $dataBilling = array(
