@@ -214,7 +214,7 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                 $lastName = $names[1];
             } else {
                 $firstName = $names[0];
-                $lastName = '.';
+                $lastName = '　';
             }
             //$lastName  = substr($name, strlen($firstName) + 1);
 
@@ -268,7 +268,7 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                     $lastName = $names[1];
                 } else {
                     $firstName = $names[0];
-                    $lastName = '.';
+                    $lastName = '　';
                 }
                 //$lastName  = substr($name, strlen($firstName) + 1);
 
