@@ -208,8 +208,8 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
 
             // Split name into first/last
             $name      = mb_convert_kana($address->getName(), 's', 'utf-8');
-            $firstName = substr($name, 0, strrpos($name, ' '));
-            $lastName  = substr($name, strlen($firstName) + 1);
+            list($firstName, $lastName) = preg_split('/^(.*)\s(.*)$/', $name);
+            //$lastName  = substr($name, strlen($firstName) + 1);
 
             $city = $address->getCity();
             $address1 = $address->getAddressLine1();
@@ -255,8 +255,8 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                 //$data['use_for_shipping'] = false;
 
                 $name      = mb_convert_kana($billing->getName(), 's', 'utf-8');
-                $firstName = substr($name, 0, strrpos($name, ' '));
-                $lastName  = substr($name, strlen($firstName) + 1);
+                list($firstName, $lastName) = preg_split('/^(.*)\s(.*)$/', $name);
+                //$lastName  = substr($name, strlen($firstName) + 1);
 
                 $city = $billing->getCity();
                 $address1 = $billing->getAddressLine1();
