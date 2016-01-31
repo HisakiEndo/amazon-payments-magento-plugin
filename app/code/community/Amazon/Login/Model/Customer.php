@@ -79,6 +79,7 @@ class Amazon_Login_Model_Customer extends Mage_Customer_Model_Customer
      */
     public function getAmazonName($name)
     {
+        $name = html_entity_decode($name);
         // if the user only has a first name, handle accordingly
         $trimmedName = trim($name);
         if(strpos($trimmedName,' ')===false) {
