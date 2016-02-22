@@ -50,7 +50,7 @@ class Amazon_Payments_Model_Type_Checkout extends Mage_Checkout_Model_Type_Onepa
      * @param   array $data
      * @return  Mage_Checkout_Model_Type_Onepage
      */
-    public function saveShipping($data, $customerAddressId = null)
+    public function saveShipping($data, $customerAddressId)
     {
         if (empty($data)) {
             return array('error' => -1, 'message' => Mage::helper('checkout')->__('Invalid data.'));
