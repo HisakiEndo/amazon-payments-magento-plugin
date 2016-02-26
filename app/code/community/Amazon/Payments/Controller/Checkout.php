@@ -213,8 +213,8 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                 $firstName = $names[1];
                 $lastName = $names[0];
             } else {
-                $firstName = $names[0];
-                $lastName = '　';
+                $firstName = '　';
+                $lastName = $names[0];
             }
 
             $city = $address->getCity();
@@ -268,8 +268,8 @@ abstract class Amazon_Payments_Controller_Checkout extends Mage_Checkout_Control
                     $firstName = $names[1];
                     $lastName = $names[0];
                 } else {
-                    $firstName = $names[0];
-                    $lastName = '　';
+                    $firstName = '　';
+                    $lastName = $names[0];
                 }
                 //$lastName  = substr($name, strlen($firstName) + 1);
 
